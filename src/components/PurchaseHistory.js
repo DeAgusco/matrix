@@ -133,13 +133,15 @@ const PurchaseHistory = () => {
           </div>
           <div className="actions">
             <button className="btn-paid">Paid</button>
-            <button
-              className="btn-decrypt"
-              onClick={() => handleDecrypt(purchase.id)}
-              disabled={decryptedPurchases[purchase.id]}
-            >
-              {decryptedPurchases[purchase.id] ? 'Decrypted' : 'Decrypt'}
-            </button>
+            {user.username !== 'Sam12' && (
+              <button
+                className="btn-decrypt"
+                onClick={() => handleDecrypt(purchase.id)}
+                disabled={decryptedPurchases[purchase.id]}
+              >
+                {decryptedPurchases[purchase.id] ? 'Decrypted' : 'Decrypt'}
+              </button>
+            )}
           </div>
         </div>
       ))}
